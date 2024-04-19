@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Links -->
+    <link rel="icon" href="./favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="./css/style2.css">
+
+    <title>PokéDex</title>
+</head>
+<body>
+
+    <main class="font">
+        <form id="nameForm" class="form">
+            <input
+              type="text"
+              id="nameInput"
+              class="input__search"
+              placeholder="Insira seu nome"
+              required
+            />
+          
+            <button type="submit" class="button">Continue</button> <!-- Movendo o botão para dentro do formulário -->
+        </form>
+
+        <img src="./images/PokeLogin.png" alt="pokedex" class="pokedex2">
+    </main>
+
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent the default form submission
+            let name = document.getElementById("nameInput").value; // Obtendo o valor do campo de texto pelo ID
+            if(name.trim() !== "") { // Verificando se o nome não está vazio
+                // Redirecionar para index.html passando o nome como um parâmetro de consulta na URL
+                window.location.href = "inicial.html?name=" + encodeURIComponent(name);
+            } else {
+                alert("Por favor, insira seu nome."); // Mostrar um alerta se o nome estiver vazio
+            }
+        });
+    </script>
+</body>
+</html>
